@@ -233,3 +233,143 @@ footer a:hover {
     background-color 0.3s ease,
     border-color 0.3s ease;
 }
+
+/* =====================
+   EXPERIENCE PAGE
+===================== */
+
+.experience-section {
+  display: grid;
+  grid-template-columns: 1fr 2px 2fr;
+  gap: 3rem;
+  align-items: start;
+  margin-top: 6rem;
+}
+
+.experience-left h2 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.duration {
+  margin-top: 0.5rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.experience-divider {
+  width: 2px;
+  background-color: var(--border);
+  height: 100%;
+}
+
+.experience-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.experience-card {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  font-size: 0.95rem;
+}
+
+.experience-card ul {
+  margin-top: 0.5rem;
+  padding-left: 1.2rem;
+}
+
+.experience-card li {
+  margin-bottom: 0.4rem;
+  color: var(--muted);
+}
+
+/* Scroll hint */
+.scroll-hint {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 2rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+  opacity: 0.8;
+}
+
+/* =====================
+   MOBILE EXPERIENCE
+===================== */
+
+@media (max-width: 768px) {
+  .experience-section {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 4rem;
+  }
+
+  .experience-divider {
+    display: none;
+  }
+
+  .experience-left {
+    text-align: center;
+  }
+
+  .scroll-hint {
+    right: 50%;
+    transform: translateX(50%);
+  }
+}
+
+.home-icon {
+  position: fixed;
+  top: 24px;
+  left: 24px;
+  font-size: 20px;
+  text-decoration: none;
+  color: var(--text-color);
+  background: var(--card-bg);
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  z-index: 100;
+}
+
+.home-icon:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .home-icon {
+    top: 16px;
+    left: 16px;
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+}
+
+body {
+  overflow: hidden;
+}
+
+.experience-wrapper {
+  height: 100vh;
+  overflow-y: auto;
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.experience-wrapper::-webkit-scrollbar {
+  display: none;
+}

@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Work Experience | Vaibhav</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <a href="index.html" class="home-icon" aria-label="Go to home">
+        ⌂
+    </a>
+
+    <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+
+    <main class="container experience-wrapper">
+
+        <section class="experience-section">
+            <div class="experience-left">
+                <h2>TechSolutions Inc</h2>
+                <p class="duration">2020 — Present</p>
+            </div>
+
+            <div class="experience-divider"></div>
+
+            <div class="experience-right">
+                <div class="experience-card">
+                    <strong>Role:</strong> Senior Product Designer
+                </div>
+
+                <div class="experience-card">
+                    <strong>Tech Stack:</strong> React, Node.js, AWS, Figma
+                </div>
+
+                <div class="experience-card">
+                    <strong>Achieved:</strong>
+                    <ul>
+                        <li>Led cross-functional team to improve user onboarding by 25%</li>
+                        <li>Launched key feature, increasing engagement by 15%</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="scroll-hint" id="scroll-hint">
+                Scroll to view more ↓
+            </div>
+        </section>
+
+        <section class="experience-section">
+            <div class="experience-left">
+                <h2>Innovate Labs</h2>
+                <p class="duration">2018 — 2020</p>
+            </div>
+
+            <div class="experience-divider"></div>
+
+            <div class="experience-right">
+                <div class="experience-card">
+                    <strong>Role:</strong> Product Designer
+                </div>
+
+                <div class="experience-card">
+                    <strong>Tech Stack:</strong> JavaScript, Vue.js, Sketch
+                </div>
+
+                <div class="experience-card">
+                    <strong>Achieved:</strong>
+                    <ul>
+                        <li>Redesigned analytics dashboard</li>
+                        <li>Reduced user drop-off by 30%</li>
+                        <li>Reduced user drop-off by 30%</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="experience-section">
+            <div class="experience-left">
+                <h2>Innovate Labs</h2>
+                <p class="duration">2018 — 2020</p>
+            </div>
+
+            <div class="experience-divider"></div>
+
+            <div class="experience-right">
+                <div class="experience-card">
+                    <strong>Role:</strong> Product Designer
+                </div>
+
+                <div class="experience-card">
+                    <strong>Tech Stack:</strong> JavaScript, Vue.js, Sketch
+                </div>
+
+                <div class="experience-card">
+                    <strong>Achieved:</strong>
+                    <ul>
+                        <li>Redesigned analytics dashboard</li>
+                        <li>Reduced user drop-off by 30%</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        const toggle = document.getElementById("theme-toggle");
+        const root = document.documentElement;
+
+        function setTheme(theme) {
+            root.setAttribute("data-theme", theme);
+            localStorage.setItem("theme", theme);
+            toggle.textContent = theme === "dark" ? "☀️" : "🌙";
+        }
+
+        const savedTheme = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+        setTheme(savedTheme || (prefersDark ? "dark" : "light"));
+
+        toggle.addEventListener("click", () => {
+            setTheme(
+                root.getAttribute("data-theme") === "dark" ? "light" : "dark"
+            );
+        });
+    </script>
+
+    <script>
+        const scrollHint = document.getElementById("scroll-hint");
+        const wrapper = document.querySelector(".experience-wrapper");
+        const sections = document.querySelectorAll(".experience-section");
+        const lastSection = sections[sections.length - 1];
+
+        scrollHint.style.opacity = "1";
+        scrollHint.style.pointerEvents = "auto";
+
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    scrollHint.style.opacity = "0";
+                    scrollHint.style.pointerEvents = "none";
+                } else {
+                    scrollHint.style.opacity = "1";
+                    scrollHint.style.pointerEvents = "auto";
+                }
+            },
+            {
+                root: null,
+                threshold: 0.6
+            }
+        );
+
+        observer.observe(lastSection);
+    </script>
+</body>
+
+</html>
