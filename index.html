@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vaibhav | Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <button id="theme-toggle" aria-label="Toggle dark mode">
+        🌙
+    </button>
+
+    <main class="container">
+        <section class="hero">
+            <h1>Hi, I’m <span>Vaibhav</span>.</h1>
+            <p class="intro">
+                I’m a software engineer who enjoys building clean, scalable products
+                and writing about technology.
+            </p>
+
+            <div class="actions">
+                <a href="blog.html" class="btn secondary">Read My Blog →</a>
+                <a href="projects.html" class="btn primary">View My Projects →</a>
+                <a href="experience.html" class="btn secondary">
+                    My Work Experience →
+                </a>
+            </div>
+        </section>
+
+        <footer>
+            <p>© 2026 Vaibhav</p>
+            <div class="links">
+                <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+                <a href="https://linkedin.com/in/yourusername" target="_blank">
+                    LinkedIn
+                </a>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        const toggle = document.getElementById("theme-toggle");
+        const root = document.documentElement;
+
+        function setTheme(theme) {
+            root.setAttribute("data-theme", theme);
+            localStorage.setItem("theme", theme);
+            toggle.textContent = theme === "dark" ? "☀️" : "🌙";
+        }
+
+        const savedTheme = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia(
+            "(prefers-color-scheme: dark)"
+        ).matches;
+
+        if (savedTheme) {
+            setTheme(savedTheme);
+        } else {
+            setTheme(prefersDark ? "dark" : "light");
+        }
+
+        toggle.addEventListener("click", () => {
+            const currentTheme = root.getAttribute("data-theme");
+            setTheme(currentTheme === "dark" ? "light" : "dark");
+        });
+    </script>
+</body>
+
+</html>
