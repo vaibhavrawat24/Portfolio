@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects | Vaibhav</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <a href="index.html" class="home-icon" aria-label="Go to home">
+        ⌂
+    </a>
+
+    <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+
+    <main class="container">
+        <section class="hero">
+            <p class="intro">
+                You can check all my projects on my GitHub.
+            </p>
+
+            <div class="actions">
+                <a href="https://github.com/vaibhavrawat24" target="_blank" class="btn primary">
+                    Visit my GitHub →
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const toggle = document.getElementById("theme-toggle");
+        const root = document.documentElement;
+
+        function setTheme(theme) {
+            root.setAttribute("data-theme", theme);
+            localStorage.setItem("theme", theme);
+            toggle.textContent = theme === "dark" ? "☀️" : "🌙";
+        }
+
+        const savedTheme = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+        setTheme(savedTheme || (prefersDark ? "dark" : "light"));
+
+        toggle.addEventListener("click", () => {
+            setTheme(
+                root.getAttribute("data-theme") === "dark" ? "light" : "dark"
+            );
+        });
+    </script>
+</body>
+
+</html>

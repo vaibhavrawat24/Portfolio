@@ -19,7 +19,14 @@
 
         <section class="experience-section">
             <div class="experience-left">
-                <h2>Adnabu</h2>
+                <h2 class="company-name">
+                    Adnabu
+                    <a href="https://www.adnabu.com/" target="_blank" rel="noopener noreferrer" class="company-link"
+                        aria-label="Visit Adnabu website">
+                        ↗
+                    </a>
+                </h2>
+
                 <p class="duration">Aug 2024 - Jan 2026</p>
                 <p class="duration">Newark, Delaware, United States (Remote)</p>
             </div>
@@ -59,7 +66,13 @@
 
         <section class="experience-section">
             <div class="experience-left">
-                <h2>Claimbuddy</h2>
+                <h2 class="company-name">
+                    Claimbuddy
+                    <a href="https://claimbuddy.in/" target="_blank" rel="noopener noreferrer" class="company-link"
+                        aria-label="Visit Claimbuddy website">
+                        ↗
+                    </a>
+                </h2>
                 <p class="duration">June 2024 - Aug 2024</p>
                 <p class="duration">Gurugram, India</p>
                 <p class="duration">(Onsite)</p>
@@ -94,7 +107,13 @@
 
         <section class="experience-section">
             <div class="experience-left">
-                <h2>Oil & Natural Gas Corp (ONGC)</h2>
+                <h2 class="company-name">
+                    Oil & Natural Gas Corp (ONGC)
+                    <a href="https://www.ongcindia.com/" target="_blank" rel="noopener noreferrer" class="company-link"
+                        aria-label="Visit Claimbuddy website">
+                        ↗
+                    </a>
+                </h2>
                 <p class="duration">Aug 2023 - Nov 2023</p>
                 <p class="duration">Dehradun, India</p>
                 <p class="duration">(Hybrid)</p>
@@ -151,12 +170,11 @@
 
     <script>
         const scrollHint = document.getElementById("scroll-hint");
-        const wrapper = document.querySelector(".experience-wrapper");
         const sections = document.querySelectorAll(".experience-section");
         const lastSection = sections[sections.length - 1];
 
         scrollHint.style.opacity = "1";
-        scrollHint.style.pointerEvents = "auto";
+        scrollHint.style.transition = "opacity 0.3s ease"; // Smoothness!
 
         const observer = new IntersectionObserver(
             ([entry]) => {
@@ -170,11 +188,13 @@
             },
             {
                 root: null,
-                threshold: 0.6
+                threshold: 0.1
             }
         );
 
-        observer.observe(lastSection);
+        if (lastSection) {
+            observer.observe(lastSection);
+        }
     </script>
 </body>
 

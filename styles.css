@@ -358,10 +358,6 @@ footer a:hover {
   }
 }
 
-body {
-  overflow: hidden;
-}
-
 .experience-wrapper {
   height: 100vh;
   overflow-y: auto;
@@ -372,4 +368,34 @@ body {
 
 .experience-wrapper::-webkit-scrollbar {
   display: none;
+}
+
+.company-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.company-link {
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: var(--muted);
+  transform: translateY(-1px);
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.company-link:hover {
+  color: var(--text);
+  transform: translateY(-3px);
+}
+
+footer {
+  justify-content: center;
+}
+
+footer .links {
+  display: flex;
+  gap: 1.25rem;
 }
